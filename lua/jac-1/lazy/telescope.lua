@@ -11,11 +11,11 @@ return {
         require('telescope').setup({})
 
         local builtin = require('telescope.builtin')
-        local wk = require("which-key")
-        wk.add({
-            {"<leader>pw", group = "Grep Highlighted Word"},
-            {"<leader>pW", group = "Grep Word"}
-        })
+        -- local wk = require("which-key")
+        -- wk.add({
+        --     {"<leader>pw", group = "Grep Highlighted Word"},
+        --     {"<leader>pW", group = "Grep Word"}
+        -- })
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = "Find Files" })
         vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = "Find Git Files" })
         vim.keymap.set('n', '<leader>pws', function()
