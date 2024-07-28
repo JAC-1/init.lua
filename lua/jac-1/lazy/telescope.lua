@@ -11,20 +11,24 @@ return {
         require('telescope').setup({})
 
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+        local wk = require("which-key")
+        wk.add({
+            {"<leader>pw", group = "Grep Highlighted Word"},
+            {"<leader>pW", group = "Grep Word"}
+        })
+        vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = "Find Files" })
+        vim.keymap.set('n', '<C-p>', builtin.git_files, { desc = "Find Git Files" })
         vim.keymap.set('n', '<leader>pws', function()
             local word = vim.fn.expand("<cword>")
             builtin.grep_string({ search = word })
-        end)
+        end, { desc = "Grep Hovered Word" })
         vim.keymap.set('n', '<leader>pWs', function()
             local word = vim.fn.expand("<cWORD>")
             builtin.grep_string({ search = word })
         end)
         vim.keymap.set('n', '<leader>ps', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
-        end)
-        vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
+        end, { desc = "Grep" })
+        vim.keymap.set('n', '<leader>vh', builtin.help_tags, { desc = "Seach Help Tags" })
     end
 }
-
