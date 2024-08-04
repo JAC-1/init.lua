@@ -23,14 +23,14 @@ vim.keymap.set("n", "k", "gk")
 -- end)
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste from hole" })
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Send highlighted to hole and pastes registery." })
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { silent = true })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { silent = true, desc = "Yank to system clipboard"})
+vim.keymap.set("n", "<leader>Y", [["+Y]], { silent = true , desc = "Yank entire line to system clipboard"})
 
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
--- This is going to get me cancelled
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], {desc = "Send to hole"})
+
 vim.keymap.set("i", "jj", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
@@ -42,7 +42,7 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz", {desc = "Go to next error"})
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", {desc = "Go to next location"})
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", {desc = "Go to next location"})
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = "Edit all words under cursor."})
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- vim.keymap.set(
@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 --     "<leader>er",
 --     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 -- )
-
+--
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
